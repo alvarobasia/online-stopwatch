@@ -108,17 +108,15 @@ h1 {
   grid-column: 1 / span 2;
 }
 footer {
-  padding-bottom: 5px;
-  position: fixed;
-  left: 0;
   display: flex;
   flex-direction: column;
-  bottom: 0;
   background-color: rgb(58, 58, 58);
   width: 100vw;
   text-align: center;
-  height: 6vh;
-  margin-top: auto;
+  position: absolute;
+  bottom: -200px;
+  margin-bottom: 0;
+  padding: 10px;
 }
 footer > p {
   margin: 0;
