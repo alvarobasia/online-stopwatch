@@ -13,6 +13,10 @@
     7px 7px 3px 7px rgb(58, 58, 58), 9px 9px 5px 7px rgb(104, 104, 104),
     12px 12px 7px 9px rgb(143, 142, 142), 15px 15px 9px 9px rgb(185, 184, 184);
 }
+html{
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
 body,
 html {
   margin: 0;
@@ -149,7 +153,6 @@ footer > p > span {
 
 .clear {
 
-  background-color: rgb(0, 255, 213) !important;
   width: 70%;
   height: 50px;
   outline: none;
@@ -159,11 +162,59 @@ footer > p > span {
   padding: 15px 15px 15px 0;
   font-weight: 900;
   background: transparent;
-  box-shadow: 2px 2px 2px rgb(0, 255, 213);
-  border: 2px solid rgb(14, 252, 161);
+  box-shadow: var(--box-shadow);
+  border: 2px solid #ccc;
   transition: all 0.1s ease-in-out;
 }
 
+.clear:hover{
+  background-color: rgb(0, 255, 213) !important;
+  border: 2px solid rgb(14, 252, 161);
+  color: white;
+  width: 74%;
+  font-size: 3.1em;
+  overflow: hidden;
+  box-shadow: var(--box-shadow2);
+}
+
+.clear:active{
+  width: 80%;
+  border: 2px solid rgb(14, 252, 161);
+  font-size: 3.5em;
+  box-shadow: var(--box-shadow3);
+}
+.stop:hover{
+  background-color: rgb(252, 50, 14) !important;
+  border: 2px solid rgb(252, 50, 14);
+  color: white;
+  width: 74%;
+  font-size: 3.1em;
+  overflow: hidden;
+  box-shadow: var(--box-shadow2);
+}
+
+.stop:active{
+  width: 80%;
+  border: 2px solid rgb(252, 50, 14);
+  font-size: 3.5em;
+  box-shadow: var(--box-shadow3);
+}
+.start:hover{
+  background-color: rgb(30, 14, 252) !important;
+  border: 2px solid rgb(30, 14, 252);
+  color: white;
+  width: 74%;
+  font-size: 3.1em;
+  overflow: hidden;
+  box-shadow: var(--box-shadow2);
+}
+
+.start:active{
+  width: 80%;
+  border: 2px solid rgb(30, 14, 252);
+  font-size: 3.5em;
+  box-shadow: var(--box-shadow3);
+}
 button p{
   display: inline;
 }

@@ -20,9 +20,14 @@
   let interval
   let state = false
   let pressStart = false
+  let clearButton = false
 
   function handleStartClick(){
     pressStart = true
+    if(clearButton){
+      changeButtonToStop()
+      clearButton = false
+    }
     if(!state){
       state = true
       milliseconds = 0
@@ -73,12 +78,8 @@
     if(!pressStart)
       return
     if(state == false){
-      let  p = document.createElement('p')
-      p.textContent = 'STOP'
-      stopButton.textContent = ''
-      stopButton.classList.toggle('clear')
-      stopButton.appendChild(p)
-      stopButton.insertBefore(icon, p)
+      changeButtonToStop()
+      clearButton = false
       spanMilliseconds.textContent = '000'
       spanSeconds.textContent = '00'
       spanMinutes.textContent = '00'
@@ -87,19 +88,35 @@
       seconds = '00'
       minutes = '00'
       hours = '00'
-      state = false
       clearInterval(interval)
       pressStart = false
+      state = false
       return
     }
+    changeButtonToClear()
+    clearButton = true
+    state = false
+    clearInterval(interval)
+  }
+
+  function changeButtonToStop(){
+      let  p = document.createElement('p')
+      stopButton.classList.toggle('stop')
+      p.textContent = 'STOP'
+      stopButton.textContent = ''
+      stopButton.classList.toggle('clear')
+      stopButton.appendChild(p)
+      stopButton.insertBefore(icon, p)
+  }
+
+  function changeButtonToClear(){
     stopButton.textContent = ''
     stopButton.classList.toggle('clear')
+    stopButton.classList.toggle('stop')
     let p2 = document.createElement('p')
     p2.textContent = 'CLEAR'
     stopButton.appendChild(p2)
     stopButton.insertBefore(icon2, p2)
-    state = false
-    clearInterval(interval)
   }
   startButton.addEventListener('click', handleStartClick ,false)
   stopButton.addEventListener('click', handleStopClick, false)
