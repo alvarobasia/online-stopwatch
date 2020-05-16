@@ -9,14 +9,22 @@
   const spanMinutes = document.querySelector('#minutes')
   const spanSeconds = document.querySelector('#seconds')
   const spanMilliseconds = document.querySelector('#milliseconds')
+
+
+
   let milliseconds 
   let seconds
   let minutes
   let hours 
+
+
+
   let icon = document.createElement('i')
   icon.classList = 'fa-stop fa'
+
   let icon2 = document.createElement('i')
   icon2.classList = 'fas fa-backward'
+  
   let interval
   let state = false
   let pressStart = false
