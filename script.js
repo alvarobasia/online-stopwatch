@@ -39,7 +39,6 @@
     if(!state){
       state = true
       if(!stopped){
-        console.log("Llplplplp");
         milliseconds = 0
         seconds = 0
         minutes = 0
@@ -62,6 +61,14 @@
             spanSeconds.textContent = seconds
           milliseconds = 000 
         }
+
+        if(seconds == 60){
+          spanSeconds.textContent = 00
+        }else{
+          spanSeconds.textContent = seconds
+        }
+
+        
         if(seconds == 60){
 
           minutes++
