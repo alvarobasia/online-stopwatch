@@ -10,7 +10,7 @@
   const spanSeconds = document.querySelector('#seconds')
   const spanMilliseconds = document.querySelector('#milliseconds')
 
-
+  let stopped = false
 
   let milliseconds 
   let seconds
@@ -38,14 +38,22 @@
     }
     if(!state){
       state = true
-      milliseconds = 0
-      seconds = 0
-      minutes = 0
-      hours = 0
+      if(!stopped){
+        console.log("Llplplplp");
+        milliseconds = 0
+        seconds = 0
+        minutes = 0
+        hours = 0
+      }
+      stopped = false
       interval = setInterval((e) => {
-        milliseconds += 50
-        
-        spanMilliseconds.textContent = milliseconds
+        milliseconds += 100
+        if(milliseconds == 1000){
+          spanMilliseconds.textContent = 00
+        }else{
+          spanMilliseconds.textContent = milliseconds
+        }
+
         if(milliseconds == 1000){
           seconds++
           if(seconds < 10)
@@ -65,7 +73,7 @@
           spanHours.textContent = hours
           minutes =0
         }
-      }, 50);
+      }, 100);
     }
   }
 
@@ -99,12 +107,14 @@
       clearInterval(interval)
       pressStart = false
       state = false
+      stopped = false
       return
     }
     changeButtonToClear()
     clearButton = true
     state = false
     clearInterval(interval)
+    stopped = true;
   }
 
   function changeButtonToStop(){
